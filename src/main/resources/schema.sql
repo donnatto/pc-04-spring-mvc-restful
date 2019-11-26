@@ -8,6 +8,7 @@ create table tbl_address (
 create table tbl_employee (
     emp_id int identity primary key,
     name varchar(100) not null,
-    addr_id int not null
+    addr_id int,
+    foreign key(addr_id) references tbl_address(add_id)
 );
 

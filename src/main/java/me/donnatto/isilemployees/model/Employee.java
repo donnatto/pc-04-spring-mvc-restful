@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 public class Employee {
     private Long id;
     private String name;
-    private Long addressId;
+    private Address address;
 
-    public Employee(String name, Long addressId) {
+    public Employee(String name, Address address) {
         this.name = name;
-        this.addressId = addressId;
+        this.address = address;
     }
 }

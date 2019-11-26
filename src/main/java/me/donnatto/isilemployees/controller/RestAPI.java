@@ -1,7 +1,6 @@
 package me.donnatto.isilemployees.controller;
 
 import me.donnatto.isilemployees.model.Address;
-import me.donnatto.isilemployees.model.CompleteInfo;
 import me.donnatto.isilemployees.model.Employee;
 import me.donnatto.isilemployees.service.AddressService;
 import me.donnatto.isilemployees.service.EmployeeService;
@@ -59,8 +58,10 @@ public class RestAPI {
         if (currentEmployee == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        currentEmployee.setAddressId(employee.getAddressId());
         currentEmployee.setName(employee.getName());
+        Address address = new Address(employee.getAddress().getCountry(), employee.getAddress().getCity(), employee.getAddress().getStreet());
+
+        currentEmployee.setAddress(address);
 
         employeeService.updateEmployee(currentEmployee);
 

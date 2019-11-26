@@ -28,4 +28,11 @@ public class AddressController {
         return "addresses";
     }
 
+    @GetMapping("/new")
+    public String newAddress(Model model) {
+        Address address = new Address();
+        model.addAttribute("address", address);
+        return "addresses-new";
+    }
+
 }
