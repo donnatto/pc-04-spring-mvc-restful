@@ -40,14 +40,14 @@ public class EmployeeRepository {
     }
 
     public Employee findById(Long id) {
-        final String sql = "select * from tbl_employee inner join tbl_address on tbl_address.add_id = tbl_employee.addr_id where addr_id = ?";
+        final String sql = "select * from tbl_employee inner join tbl_address on tbl_address.add_id = tbl_employee.addr_id where emp_id = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{id}, EmployeeRepository::employeeRowMapper);
     }
 
     public static Employee employeeRowMapper(ResultSet resultSet, int i) throws SQLException {
         Long eId = resultSet.getLong("emp_id");
         String name = resultSet.getString("name");
-        Long aId = resultSet.getLong("addr_id");
+        Integer aId = resultSet.getInt("addr_id");
         String country = resultSet.getString("tbl_address.country");
         String city = resultSet.getString("tbl_address.city");
         String street = resultSet.getString("tbl_address.street");

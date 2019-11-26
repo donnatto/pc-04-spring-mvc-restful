@@ -22,11 +22,7 @@ public class EmployeeService {
     }
 
     public void creatEmployee(Employee employee) {
-        String name = employee.getName();
-        Address address = employee.getAddress();
-        Employee newEmployee = new Employee(name, address);
-        addressRepository.create(address);
-        employeeRepository.create(newEmployee);
+        employeeRepository.create(employee);
     }
 
     public List<Employee> readEmployees() {
@@ -34,8 +30,6 @@ public class EmployeeService {
     }
 
     public void updateEmployee(Employee employee) {
-        Address address = employee.getAddress();
-        addressRepository.update(address);
         employeeRepository.update(employee);
     }
 

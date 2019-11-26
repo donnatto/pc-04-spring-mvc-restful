@@ -29,11 +29,11 @@ public class AddressService {
         addressRepository.update(address);
     }
 
-    public void deleteAddress(Long id) {
+    public void deleteAddress(Integer id) {
         addressRepository.delete(id);
     }
 
-    public Address findAddress(Long id) {
+    public Address findAddress(Integer id) {
         return addressRepository.findById(id);
     }
 }

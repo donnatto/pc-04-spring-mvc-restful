@@ -22,12 +22,12 @@ public class AddressRepository {
     }
 
     public void update(Address address) {
-        final String sql = "update tbl_address set country = ?, city = ?, street = ? where id = ?";
+        final String sql = "update tbl_address set country = ?, city = ?, street = ? where add_id = ?";
         jdbcTemplate.update(sql, address.getCountry(), address.getCity(), address.getStreet(), address.getAddressId());
     }
 
-    public void delete(Long id) {
-        final String sql = "delete tbl_address where id = ?";
+    public void delete(Integer id) {
+        final String sql = "delete tbl_address where add_id = ?";
         jdbcTemplate.update(sql, id);
     }
 
@@ -36,13 +36,13 @@ public class AddressRepository {
         return jdbcTemplate.query(sql, AddressRepository::addressRowMapper);
     }
 
-    public Address findById(Long id) {
+    public Address findById(Integer id) {
         final String sql = "select * from tbl_address where add_id = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{id}, AddressRepository::addressRowMapper);
     }
 
     public static Address addressRowMapper(ResultSet resultSet, int i) throws SQLException {
-        Long aId = resultSet.getLong("add_id");
+        Integer aId = resultSet.getInt("add_id");
         String country = resultSet.getString("country");
         String city = resultSet.getString("city");
         String street = resultSet.getString("street");

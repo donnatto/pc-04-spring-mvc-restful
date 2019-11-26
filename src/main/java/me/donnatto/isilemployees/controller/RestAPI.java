@@ -91,7 +91,7 @@ public class RestAPI {
     }
 
     @GetMapping("/addresses/{id}")
-    public ResponseEntity getAddressById(@PathVariable Long id) {
+    public ResponseEntity getAddressById(@PathVariable Integer id) {
         Address currentAddress = addressService.findAddress(id);
         if (currentAddress == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -106,7 +106,7 @@ public class RestAPI {
     }
 
     @PutMapping("/addresses/{id}")
-    public ResponseEntity updateAddress(@PathVariable Long id, @RequestBody Address address) {
+    public ResponseEntity updateAddress(@PathVariable Integer id, @RequestBody Address address) {
         Address currentAddress = addressService.findAddress(id);
         if (currentAddress == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -121,7 +121,7 @@ public class RestAPI {
     }
 
     @DeleteMapping("/addresses/{id}")
-    public ResponseEntity deleteAddress(@PathVariable Long id) {
+    public ResponseEntity deleteAddress(@PathVariable Integer id) {
         Address currentAddress = addressService.findAddress(id);
         if (currentAddress == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
