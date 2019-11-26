@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Menu</title>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a th:href="@{/menu}" class="navbar-brand">Mi Web</a>
+    <h1 th:inline="text"> Hola [[${#httpServletRequest.remoteUser}]]</h1>
+
+    <form th:action="@{/logout}" class="form-inline" method="post">
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Salir
+        </button>
+
+    </form>
+
+
+
+</nav>
+
+<div class="section">
+
+    <div class="container">
+        <a th:href="@{/addresses/add}" class="btn btn-primary mb-3">Añade una Direccion</a>
+    </div>
+
+    <div class="container">
+        <h4>Lista de Ciudades</h4>
+            <table class="table">
+                    <thead>
+                    <tr class="d-flex">
+                        <th scope="col" class="col-2">id</th>
+                        <th scope="col" class="col-3">Pais</th>
+                        <th scope="col" class="col-3">Ciudad</th>
+                        <th scope="col" class="col-4">Direccion</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="address : ${addresses}" class="d-flex">
+                        <th scope="row" th:text="${address.addressId}" class="col-2"></th>
+                        <td th:text="${address.country}" class="col-3"></td>
+                        <td th:text="${address.city}" class="col-3"></td>
+                        <td th:text="${address.street}" class="col-3"></td>
+
+                        <td class="col-4">
+                                <a th:href="@{/addresses/edit/{id_address}
+                                    (id_address=${address.addressId})}"
+                                   class="btn btn-small btn-success">Editar
+                                </a>
+                                <a th:href="@{/addresses/delete/{id_address}
+                                (id_address=${address.addressId})}"
+                                   class="btn btn-small btn-danger">Eliminar
+                                </a>
+                        </td>
+                    </tr>
+                    </tbody>
+            </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Menu</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a th:href="@{/menu}" class="navbar-brand">Mi Web</a>
+        <h1 th:inline="text"> Hola [[${#httpServletRequest.remoteUser}]]</h1>
+
+        <form th:action="@{/logout}" class="form-inline" method="post">
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                Salir
+            </button>
+
+        </form>
+
+
+
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col s12 m6">
+                <div class="card">
+                    <a th:href="@{/employees}">
+                        <img class="card-img-top" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="employees"/>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Employees</h5>
+                        <p class="card-text">Employee CRUD functionality</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card">
+                    <a th:href="@{/addresses}">
+                        <img class="card-img-top" src="https://images.unsplash.com/photo-1493210977798-4f655ac200a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=862&q=80" alt="addresses"/>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Addresses</h5>
+                        <p class="card-text">Address CRUD functionality</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
