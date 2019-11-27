@@ -1,5 +1,5 @@
 # pc04-spring-mvc-restful-donnatto
->PC-04 Desarrollo de Aplicaciones Empresariales II - Edwin Dominguez Oliva
+>PC-04 Business Application Development II - Edwin Donato Dominguez Oliva
 
 
 ## Notes
